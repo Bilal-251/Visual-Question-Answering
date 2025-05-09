@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visual Question Answering</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #74ebd5, #9face6);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      animation: fadeInBody 1s ease-in-out;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h2 {
+      color: #ffffff;
+      margin-top: 40px;
+      font-size: 36px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      animation: slideDown 1s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    form {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 500px;
+      margin-top: 30px;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      font-size: 15px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    input[type="text"]:focus,
+    input[type="file"]:focus {
+      border-color: #6a1b9a;
+      box-shadow: 0 0 8px #ba68c8;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(to right, #11998e, #38ef7d);
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #fff;
+      background-color: #4caf50;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: popIn 0.5s ease-in-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <h2>🖼️❓ Got a Question? Ask it About Any Image! 🤖💡</h2>
+
+  <form method="POST" enctype="multipart/form-data">
+    <label>Upload Image:</label>
+    <input type="file" name="image" required />
+
+    <label>Question:</label>
+    <input type="text" name="question" required />
+
+    <label>Option 1:</label>
+    <input type="text" name="option1" required />
+    <label>Option 2:</label>
+    <input type="text" name="option2" required />
+    <label>Option 3:</label>
+    <input type="text" name="option3" required />
+    <label>Option 4:</label>
+    <input type="text" name="option4" required />
+
+    <input type="submit" value="Submit" />
+  </form>
+
+  {% if result %}
+  <h3>Predicted Answer: {{ result }}</h3>
+  {% endif %}
+
+</body>
+</html>

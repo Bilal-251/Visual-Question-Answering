@@ -40,18 +40,20 @@ It is powered by a hybrid deep learning model trained on a **combined dataset of
 ```bash
 git clone https://github.com/Bilal-251/Visual-Question-Answering.git
 cd Visual-Question-Answering
+```
 
 ### 2. Create a Virtual Environment (Recommended)
-
+```
 python -m venv venv
  venv\Scripts\activate
+```
 
 ### 3. Install Dependencies
-
+```
 pip install -r requirements.txt
-
+```
 
 ### 4. Run the App
-
+```
 python app.py
-
+```
